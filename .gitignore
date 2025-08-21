@@ -3,6 +3,11 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Claude Code files - only commit CLAUDE.md
+.claude/
+claude_chat_*
+!CLAUDE.md
+
 # User-specific files
 *.rsuser
 *.suo
