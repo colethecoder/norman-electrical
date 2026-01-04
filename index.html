@@ -211,6 +211,150 @@
             color: #3498db;
         }
 
+        .gallery-section {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+        }
+
+        .gallery-scroll {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding: 10px 0;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .gallery-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .gallery-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .gallery-scroll::-webkit-scrollbar-thumb {
+            background: #3498db;
+            border-radius: 4px;
+        }
+
+        .gallery-scroll::-webkit-scrollbar-thumb:hover {
+            background: #2980b9;
+        }
+
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 200px;
+            height: 150px;
+            border-radius: 10px;
+            overflow: hidden;
+            scroll-snap-align: start;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 5px 10px;
+            transition: color 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            color: #3498db;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 15px 20px;
+            transition: background 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-nav {
+                padding: 10px 15px;
+                font-size: 1.5rem;
+            }
+
+            .lightbox-prev {
+                left: 10px;
+            }
+
+            .lightbox-next {
+                right: 10px;
+            }
+        }
+
         .areas-section {
             margin-top: 30px;
             padding-top: 30px;
@@ -376,6 +520,36 @@
             </ul>
         </div>
 
+        <div class="gallery-section">
+            <h2 class="section-title">Our Work</h2>
+            <div class="gallery-scroll">
+                <div class="gallery-item">
+                    <img src="work-gallery/fusebox.jpg" alt="Fuse board installation">
+                </div>
+                <div class="gallery-item">
+                    <img src="work-gallery/051527c3b4cf4aa091fdb668e478bd7d.jpeg" alt="Electrical work">
+                </div>
+                <div class="gallery-item">
+                    <img src="work-gallery/0a48e6ad39d3cc51cf237d16976661da.jpeg" alt="Electrical work">
+                </div>
+                <div class="gallery-item">
+                    <img src="work-gallery/2811c3e432c942e3e719822237d60e22.jpeg" alt="Electrical work">
+                </div>
+                <div class="gallery-item">
+                    <img src="work-gallery/51da8352f177848594ac66e7eb40f215.jpeg" alt="Electrical work">
+                </div>
+                <div class="gallery-item">
+                    <img src="work-gallery/70b05ca13c57d06cf891d980d5479ef5.jpeg" alt="Electrical work">
+                </div>
+                <div class="gallery-item">
+                    <img src="work-gallery/d5e5669b8be5aa7a3252abd6820e6cc6.jpeg" alt="Electrical work">
+                </div>
+                <div class="gallery-item">
+                    <img src="work-gallery/e915e7e2fea3676a3746c8bbbb07b22c.jpeg" alt="Electrical work">
+                </div>
+            </div>
+        </div>
+
         <div class="areas-section">
             <h2 class="section-title">Areas We Cover</h2>
             <div class="areas-list">
@@ -415,5 +589,68 @@
             </div>
         </div>
     </div>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <img src="" alt="Gallery image" id="lightbox-img">
+        </div>
+        <button class="lightbox-nav lightbox-next" id="lightbox-next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+        let currentIndex = 0;
+
+        const images = Array.from(galleryItems).map(img => img.src);
+
+        galleryItems.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                currentIndex = index;
+                lightboxImg.src = images[currentIndex];
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('lightbox-prev').addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            lightboxImg.src = images[currentIndex];
+        });
+
+        document.getElementById('lightbox-next').addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex + 1) % images.length;
+            lightboxImg.src = images[currentIndex];
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') document.getElementById('lightbox-prev').click();
+            if (e.key === 'ArrowRight') document.getElementById('lightbox-next').click();
+        });
+    </script>
 </body>
 </html>
