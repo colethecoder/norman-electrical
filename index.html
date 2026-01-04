@@ -158,6 +158,80 @@
             background: #008a35;
         }
 
+        .tagline {
+            font-size: 1.2rem;
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .about-text {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .services-section {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+            text-align: left;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .services-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .services-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .services-list li::before {
+            content: '\f0e7';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .areas-section {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+        }
+
+        .areas-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .area-tag {
+            background: #ecf0f1;
+            color: #2c3e50;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
         .qualifications-section {
             margin-top: 30px;
             padding-top: 30px;
@@ -217,6 +291,10 @@
                 width: 70px;
                 height: 70px;
             }
+
+            .services-list {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -258,11 +336,19 @@
         <img src="logo.png" alt="Norman Electrical Logo" class="logo">
         
         <h1>Norman Electrical</h1>
-        
-        <p class="description">
-            Looking for a qualified electrician? Any electrical work, no matter how small, we can help.
+
+        <p class="tagline">
+            Local, trusted, reliable electrician covering Milton Keynes and surrounding areas.
         </p>
-        
+
+        <p class="about-text">
+            Fully qualified and fully insured with over 10 years' experience in highways and domestic electrical installations and maintenance.
+        </p>
+
+        <p class="about-text">
+            When you need an electrician who delivers quality workmanship, honest advice, and dependable results, I'm here to help. Whether it's a small repair or a major installation, I bring knowledge, reliability, and a commitment to safety to every job.
+        </p>
+
         <div class="contact-section">
             <div class="contact-links">
                 <a href="tel:07400633678" class="contact-link">
@@ -277,6 +363,35 @@
             </div>
         </div>
         
+        <div class="services-section">
+            <h2 class="section-title">Services</h2>
+            <ul class="services-list">
+                <li>Electrical repairs</li>
+                <li>Lighting & power installations</li>
+                <li>Bathroom fittings</li>
+                <li>Kitchen appliances</li>
+                <li>Fuse board renewal</li>
+                <li>Garage power supply</li>
+                <li>Garden lighting & sockets</li>
+            </ul>
+        </div>
+
+        <div class="areas-section">
+            <h2 class="section-title">Areas We Cover</h2>
+            <div class="areas-list">
+                <span class="area-tag">Milton Keynes</span>
+                <span class="area-tag">Bletchley</span>
+                <span class="area-tag">Newport Pagnell</span>
+                <span class="area-tag">Olney</span>
+                <span class="area-tag">Woburn</span>
+                <span class="area-tag">Hanslope</span>
+                <span class="area-tag">Towcester</span>
+                <span class="area-tag">Stony Stratford</span>
+                <span class="area-tag">Buckingham</span>
+                <span class="area-tag">Leighton Buzzard</span>
+            </div>
+        </div>
+
         <div class="social-section">
             <h2 class="social-title">Follow Us</h2>
             <div class="social-links">
@@ -284,7 +399,7 @@
                     <i class="fab fa-facebook-f"></i>
                     Facebook
                 </a>
-                
+
                 <a href="https://nextdoor.co.uk/pages/norman-electrical-milton-keynes-england" target="_blank" class="social-link nextdoor">
                     <i class="fas fa-home"></i>
                     Nextdoor
