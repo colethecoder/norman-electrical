@@ -26,7 +26,8 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #4a90a4 0%, #2c3e50 100%);
+            background: url('background.JPG') no-repeat center center fixed;
+            background-size: cover;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -157,6 +158,26 @@
             background: #008a35;
         }
 
+        .qualifications-section {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+        }
+
+        .qualifications-logos {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .qualification-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             .container {
@@ -191,6 +212,11 @@
                 max-width: 280px;
                 justify-content: center;
             }
+
+            .qualification-logo {
+                width: 70px;
+                height: 70px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -218,6 +244,11 @@
             .social-link {
                 padding: 10px 15px;
                 font-size: 0.9rem;
+            }
+
+            .qualification-logo {
+                width: 60px;
+                height: 60px;
             }
         }
     </style>
@@ -258,6 +289,14 @@
                     <i class="fas fa-home"></i>
                     Nextdoor
                 </a>
+            </div>
+        </div>
+
+        <div class="qualifications-section">
+            <div class="qualifications-logos">
+                <img src="hea-logo.png" alt="HEA Qualification" class="qualification-logo">
+                <img src="hers-logo.png" alt="HERS Qualification" class="qualification-logo">
+                <img src="city-guilds-logo.png" alt="City & Guilds Qualification" class="qualification-logo">
             </div>
         </div>
     </div>
